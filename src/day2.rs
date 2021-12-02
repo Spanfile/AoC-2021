@@ -3,10 +3,10 @@ pub fn part1() -> usize {
     let (x, y) = input
         .split('\n')
         .fold((0, 0), |(x, y), line| match line.split_once(' ') {
-            Some((op, amount)) => match (op, amount.parse::<usize>().ok()) {
-                ("forward", Some(amount)) => (x + amount, y),
-                ("down", Some(amount)) => (x, y + amount),
-                ("up", Some(amount)) => (x, y - amount),
+            Some((op, amount)) => match (op, amount.parse::<usize>()) {
+                ("forward", Ok(amount)) => (x + amount, y),
+                ("down", Ok(amount)) => (x, y + amount),
+                ("up", Ok(amount)) => (x, y - amount),
                 _ => panic!(),
             },
             None => panic!(),
@@ -20,10 +20,10 @@ pub fn part2() -> usize {
         input
             .split('\n')
             .fold((0, 0, 0), |(x, y, aim), line| match line.split_once(' ') {
-                Some((op, amount)) => match (op, amount.parse::<usize>().ok()) {
-                    ("forward", Some(amount)) => (x + amount, y + aim * amount, aim),
-                    ("down", Some(amount)) => (x, y, aim + amount),
-                    ("up", Some(amount)) => (x, y, aim - amount),
+                Some((op, amount)) => match (op, amount.parse::<usize>()) {
+                    ("forward", Ok(amount)) => (x + amount, y + aim * amount, aim),
+                    ("down", Ok(amount)) => (x, y, aim + amount),
+                    ("up", Ok(amount)) => (x, y, aim - amount),
                     _ => panic!(),
                 },
                 None => panic!(),
