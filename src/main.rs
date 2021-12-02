@@ -1,5 +1,7 @@
-use aoc_runner_derive::aoc_main;
-
 mod day1;
+mod day2;
 
-aoc_main! { year = 2021 }
+fn main() {
+    println!("Part 1: {}", day2::part1());
+    println!("Part 2: {}", day2::part2());
+}
