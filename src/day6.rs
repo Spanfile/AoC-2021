@@ -1,3 +1,6 @@
+#![allow(unused_variables)]
+#![allow(dead_code)]
+
 fn generator() -> Vec<u8> {
     let input = std::fs::read_to_string("input/day6").unwrap();
     input
