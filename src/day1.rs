@@ -1,3 +1,6 @@
+#![allow(unused_variables)]
+#![allow(dead_code)]
+
 use std::cmp::Ordering;
 
 pub fn generator() -> Vec<i32> {

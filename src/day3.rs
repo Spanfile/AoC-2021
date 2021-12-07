@@ -1,3 +1,6 @@
+#![allow(unused_variables)]
+#![allow(dead_code)]
+
 use std::collections::HashSet;
 
 pub fn part1() -> usize {

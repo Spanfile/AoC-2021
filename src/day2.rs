@@ -1,3 +1,6 @@
+#![allow(unused_variables)]
+#![allow(dead_code)]
+
 pub fn part1() -> usize {
     let input = std::fs::read_to_string("input/day2").unwrap();
     let (x, y) = input
