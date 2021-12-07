@@ -4,7 +4,7 @@
 pub fn part1() -> usize {
     let input = std::fs::read_to_string("input/day2").unwrap();
     let (x, y) = input
-        .split('\n')
+        .lines()
         .fold((0, 0), |(x, y), line| match line.split_once(' ') {
             Some((op, amount)) => match (op, amount.parse::<usize>()) {
                 ("forward", Ok(amount)) => (x + amount, y),
@@ -19,17 +19,16 @@ pub fn part1() -> usize {
 
 pub fn part2() -> usize {
     let input = std::fs::read_to_string("input/day2").unwrap();
-    let (x, y, _) =
-        input
-            .split('\n')
-            .fold((0, 0, 0), |(x, y, aim), line| match line.split_once(' ') {
-                Some((op, amount)) => match (op, amount.parse::<usize>()) {
-                    ("forward", Ok(amount)) => (x + amount, y + aim * amount, aim),
-                    ("down", Ok(amount)) => (x, y, aim + amount),
-                    ("up", Ok(amount)) => (x, y, aim - amount),
-                    _ => panic!(),
-                },
-                None => panic!(),
-            });
+    let (x, y, _) = input
+        .lines()
+        .fold((0, 0, 0), |(x, y, aim), line| match line.split_once(' ') {
+            Some((op, amount)) => match (op, amount.parse::<usize>()) {
+                ("forward", Ok(amount)) => (x + amount, y + aim * amount, aim),
+                ("down", Ok(amount)) => (x, y, aim + amount),
+                ("up", Ok(amount)) => (x, y, aim - amount),
+                _ => panic!(),
+            },
+            None => panic!(),
+        });
     x * y
 }

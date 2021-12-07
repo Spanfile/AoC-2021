@@ -5,11 +5,7 @@ use std::cmp::Ordering;
 
 pub fn generator() -> Vec<i32> {
     let input = std::fs::read_to_string("input/day1").unwrap();
-    input
-        .trim()
-        .split('\n')
-        .map(|s| s.parse().unwrap())
-        .collect()
+    input.trim().lines().map(|s| s.parse().unwrap()).collect()
 }
 
 pub fn part1() -> usize {

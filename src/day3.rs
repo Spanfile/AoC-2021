@@ -6,7 +6,7 @@ use std::collections::HashSet;
 pub fn part1() -> usize {
     let input = std::fs::read_to_string("input/day3")
         .unwrap()
-        .split('\n')
+        .lines()
         .map(|s| u16::from_str_radix(s, 2))
         .collect::<Result<Vec<_>, _>>()
         .unwrap();
@@ -25,7 +25,7 @@ pub fn part1() -> usize {
 pub fn part2() -> usize {
     let input = std::fs::read_to_string("input/day3")
         .unwrap()
-        .split('\n')
+        .lines()
         .map(|s| u16::from_str_radix(s, 2))
         .collect::<Result<Vec<_>, _>>()
         .unwrap();
